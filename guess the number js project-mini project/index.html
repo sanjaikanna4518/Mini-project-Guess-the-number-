@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUESS THE NUMBER</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Guess the Number</h1>
+    <input type="text" id="num1" value="0">
+    <button onclick="sanjai()">Check</button>
+    <p id="result">Result: </p>
+    <p id="score">Score: 10</p>
+
+    <script>
+        var boxValue = document.getElementById("num1");
+        var result = document.getElementById("result");
+        var score = document.getElementById("score");
+        var randomNumber = Math.floor(Math.random() * 10) + 1;
+        var totalScore = 10;
+
+        function sanjai() {
+            var enteredNumber = boxValue.value // Get entered number as integer
+
+            if (randomNumber === enteredNumber) {
+                result.textContent = "You're right!";
+                console.log("right");
+            } else {
+                totalScore -= 1; // Decrease score for wrong guess
+                score.textContent = "Score: " + totalScore;
+                console.log("wrong");
+                result.textContent = "Wrong guess. Try again.";
+            }
+
+        }
+    </script>
+</body>
+</html>
